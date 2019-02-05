@@ -25,7 +25,7 @@ type Manager struct {
 }
 
 func (c Manager) HandleRequest() string {
-	return ""
+	return "hello"
 }
 
 // Supervisor 直接上级
