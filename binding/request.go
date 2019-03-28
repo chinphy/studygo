@@ -1,4 +1,4 @@
-package requests
+package binding
 
 type Login struct {
 	Username string `json:"username" form:"username" binding:"required"`

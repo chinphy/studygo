@@ -8,8 +8,6 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	"studygo/binding/request"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -49,7 +47,7 @@ func main() {
 	}
 	r := gin.Default()
 	r.GET("/person", func(c *gin.Context) {
-		lo := request.Login{}
+		//lo := binding.Login{}
 		p := Person{}
 		persons, err := p.GetAll()
 		fmt.Println(persons)
