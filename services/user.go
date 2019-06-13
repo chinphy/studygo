@@ -29,16 +29,17 @@ func (obj *UserService) VerifyUser(userBind *binders.User, check byte) (models.U
 	)
 	models.DB.Where("username = ?", userBind.Username).First(&userEntity)
 
-	if constant.UserVerifyCheckPwd == check&constant.UserVerifyCheckPwd {
+	if constant.UserVerifyCheckAll == check || constant.UserVerifyCheckPwd == check&constant.UserVerifyCheckPwd {
 		if !tools.PasswordVerify(&userBind.Password, &userEntity.Salt, &userEntity.Password) {
 			return userEntity, false
 		}
 	}
 
-	if constant.UserVerifyCheckStat == check&constant.UserVerifyCheckStat {
+	if constant.UserVerifyCheckAll == check || constant.UserVerifyCheckStat == check&constant.UserVerifyCheckStat {
 		if userEntity.Status != 1 {
 			return userEntity, false
 		}
 	}
+
 	return userEntity, true
 }

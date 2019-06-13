@@ -6,5 +6,5 @@ const (
 	// UserVerifyCheckPwd 检查密码
 	UserVerifyCheckPwd byte = 1
 	// UserVerifyCheckStat 检查状态
-	UserVerifyCheckStat byte = UserVerifyCheckPwd << 2
+	UserVerifyCheckStat byte = UserVerifyCheckPwd << 1
 )
