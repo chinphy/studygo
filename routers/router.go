@@ -2,7 +2,6 @@ package routers
 
 import (
 	"studygo/api"
-	"studygo/services"
 
 	"github.com/gin-gonic/gin"
 )
@@ -26,8 +25,7 @@ func Router() *gin.Engine {
 			c.JSON(200, data)
 		})
 
-		var c *services.Sign
-		v1.POST("/signin", c.Signin)
+		v1.POST("/signin", api.Signin)
 		v1.POST("/signup", api.Signup)
 	}
 

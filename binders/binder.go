@@ -4,5 +4,6 @@ package binders
 type User struct {
 	Username string `form:"username"`
 	Password string `form:"password"`
-	Age      int    `form:"age"`
+	Age      uint8  `form:"age"`
+	Status   uint8  `form:"status"`
 }

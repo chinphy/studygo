@@ -26,8 +26,10 @@ func InitDB() (*gorm.DB, error) {
 
 // User 对象
 type User struct {
-	ID       uint   `gorm:"primary_key;AUTO_INCREMENT"`
-	Username string `gorm:"type:varchar(20)"`
-	Age      uint   `gorm:"type:int(11)"`
+	ID       uint64 `gorm:"primary_key;AUTO_INCREMENT"`
+	Username string `gorm:"type:varchar(30)"`
+	Age      uint8  `gorm:"type:int(11)"`
 	Password string `gorm:"type:varchar(32)"`
+	Salt     string `gorm:"type:varchar(6)"`
+	Status   uint8  `gorm:"type:tinyint"`
 }
